@@ -33,6 +33,8 @@ def action(option):
             os.system("sudo reboot")
         elif option == 3:
             os.system("logout")
+    else:
+        print("OS not supported")
 
 def main():
     summary()
