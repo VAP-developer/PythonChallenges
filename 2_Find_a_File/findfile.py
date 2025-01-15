@@ -1,14 +1,12 @@
-# Encontrar un fichero
-# Basico: Nombre y directorio
-# Intermedio: Recursivamente
-# Avanzado: Patrones (*.txt)
-# Creativa: Interfaz grafico
-
-# os.walk -> Recorre directorios recursivamente. Tupla [Dir actual, Subdir, Files]
+# Program: Find a file
+# Basic: Current directory
+# Medium: Recursive search
+# Advance: (*.txt)
 
 import os
 
 # Basic search
+#------------------------------------------------------------------
 def search_file(file_name, directory):
     files = os.listdir(directory)
     if file_name in files:
@@ -16,13 +14,14 @@ def search_file(file_name, directory):
     else:
         print("Dont find :(")
 
+# Medium
+#------------------------------------------------------------------
 def ft_walk(dir):
-    # Es una tupla de 3
     result = []
     files = []
     dirs = []
     root = [dir]
-    dir_complete = os.listdir(dir) # Lista de archivos en el dir actual
+    dir_complete = os.listdir(dir)
     for d in dir_complete:
         d = os.path.join(dir, d)
         if (os.path.isdir(d)):
@@ -30,7 +29,6 @@ def ft_walk(dir):
         else:
             files.append(d)
     result.append((root, dirs, files))
-    
     for subdir in dirs:
         subdir_result = ft_walk(subdir)
         result.extend(subdir_result)
@@ -43,13 +41,8 @@ def recursive_search(file_name, directory):
             if file_name in name:
                 print(name)
 
-def main2():
-    file = "Readme.md"
-    dir = "/Users/vicalons/Documents/PyC"
-    recursive_search(file, dir)
-    #print(ft_walk(dir)[1])
-    #print(ft_walk(dir)[2])
-
+# Program
+#------------------------------------------------------------------
 def main():
     file = str(input("Name file: "))
     directory = str(input("Directory: "))
@@ -60,8 +53,6 @@ def main():
         recursive_search(file, directory)
     else:
         print("Invalid option")
-
-#buscar_archivo_simple("Readme.md","/Users/vicalons/Documents/PyC")
 
 if __name__ == "__main__":
     main()
