@@ -1,18 +1,22 @@
 # Program: System Actions
 
-En este programa vamos a crear un script que muestre la información del sistema y vamos a elegir una acción del sistema
+In this program, we are going to make a script that it display the system information and we are going to choose a system option.
 
-# Indice
+# Index
 
-    1. Libreria os
-    2. Libreria platform
-    3. Libreria psutil
+    1. Library os
+    2. Library platform
+    3. Library psutil
     4. Main
 
-# Libreria os
+# Library os
 
 Esta libreria la necesitamos para interactuar con el sistema operativo.
 Un primer paso para esta libreria es saber cual es nuestro sistema operativo
+
+We need this library to interact with the operating system.
+we use os.name to know what our operating sistem is.
+Late we will use os.system(command) to execute systems commands.
  
 ```python
 import os
@@ -20,14 +24,10 @@ import os
 print(os.name)
 ```
 
-Con os.name podemos saber si nuestro sistema operativo es Windows, Unix u otro.
+# Library platform
 
-Esta libreria la usaremos con os.system(command) para ejecutar comandos.
-
-# Libreria platform
-
-Esta libreria nos sirve para extraer información de nuestro sistema.
-La usaremos para saber el nombre de nuestro sistema operativa y la version entre otros.
+We use this library to extract system information.
+We will use platform to know the name, version and other information of our system.
 
 ```python
 import platform
@@ -35,11 +35,10 @@ import platform
 print("Name OS: ", platform.system())
 print("Version OS: ", platform.release())
 ```
-# Libreria psutil
+# Library psutil
 
-Con esta libreria podemos recoger información de procesos y recursos del sistemas.
-En el programa la usamos para obtener información de la memeoria con la funcion virtual_memory().
-En esta función usaremos los atributos .total, .used y .available
+We can extract information about system processes and resources.
+We use the function virtual_memory() to extract memory information and we will extract the total memory (.total), used memory (.used) and available memory (.available).
 
 ```python
 import psutil
@@ -51,11 +50,13 @@ print(f"Memory Available: {psutil.virtual_memory().available / (1024 ** 3):.2f} 
 
 # Main
 
-En el programa va a mostrar información del sistema y despues vamos a elegir una opción para apagar, reinicir, cerrar sesión o salir.
+The program is going to show system information and after we can choose a system option:
+    1. Shutdown
+    2. Reboot
+    3. Log out
+    4. Exit
 
-Para ello vamos a tener la funcion resumen para mostrar información del sistema y la funcion acción para realizar una de las opciones
-
-La funcion main se va a encargar de ejecutar ambas funciones pidiendo al usuario que elija una opción de las dadas.
+For this, we will create two auxiliary functions. Thi first function will show the system information and the second function will take care of the system options.
 
 ```python
 import os
