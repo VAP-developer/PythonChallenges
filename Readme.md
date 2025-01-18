@@ -4,7 +4,7 @@ In this repository i will make python programs of all levels.
 
 I will also share the different sites where I will get inspiration to do the challenges.
 
-# CHALLENGE TABLE
+# Challenges
 
 Number | Project      | Code | 
 ------ | ------------- |------ |
